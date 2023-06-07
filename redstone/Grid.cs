@@ -23,7 +23,7 @@ namespace redstone
             {
                 for (int x = 0; x < w; x++)
                 {
-                    cells[x, y] = new Cell(CellType.Empty, Facing.None);
+                    cells[x, y] = new Cell(CellType.Empty, 0);
                 }
             }
         }
@@ -37,6 +37,23 @@ namespace redstone
         {
             cells[x, y] = cell;
             cell.Update(x, y);
+        }
+        internal void SetCell(int x, int y, CellType type, Facing facing)
+        {
+            Cell cell = new Cell(type, facing);
+            cells[x, y] = cell;
+            cell.Update(x, y);
+        }
+
+        internal void Update()
+        {
+            for (int y = 0; y < h; y++)
+            {
+                for (int x = 0; x < w; x++)
+                {
+                    cells[x, y].Update(x, y);
+                }
+            }
         }
     }
 }

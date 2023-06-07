@@ -9,8 +9,14 @@ namespace redstone.Cells
     internal class Cell
     {
         CellType type;
-        Facing facing;
-        public Facing Facing => facing;
+        private Facing facing;
+
+        public Facing Facing
+        {
+            get { return facing; }
+            set { facing = value; }
+        }
+
         public CellType Type => type;
         public byte Value => value;
         byte value = 0;

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace redstone
 {
+    [Flags]
     internal enum Facing
     {
-        None, Left, Right, Up, Down
+        Left = 1, Right = 2, Up = 4, Down = 8
     }
 }
